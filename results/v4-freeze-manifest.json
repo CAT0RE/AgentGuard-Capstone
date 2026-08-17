@@ -1,0 +1,37 @@
+{
+  "protocol": "AgentGuard v4 pre-ASB freeze",
+  "frozen_at": "2026-08-17T10:44:49.863281+00:00",
+  "asb_commit": "1f561dccf92d55302368fa67679b4ba9d9c8fdc4",
+  "detector_profile": "full_v4_candidate",
+  "decision_positive": [
+    "verify",
+    "confirm",
+    "block"
+  ],
+  "design_commitment": "Authenticated user requests remain in the user-input channel. Independent instructions from untrusted external data receive a VERIFY-or-stronger intervention.",
+  "adapter_commitment": "After freeze, inspect ASB schemas and map attack payload/tool-instruction text to its closest AgentGuard boundary without changing v4 detector code, severity, confidence, or policy.",
+  "frozen_project_files_sha256": {
+    "src/agentguard/assets/contextual_injection_v3.json": "ffc215f30211dae0e43005ec578e4e23859eede1118b4272fce1f6227f054cbf",
+    "src/agentguard/detectors/contextual_injection.py": "5dd08d57c85b71c30517daeb6183e89d839828e4176a83ecb39a888a97adaf20",
+    "src/agentguard/detectors/injection.py": "da16470c073f242ae355cde3ce687f07f1078e80d4c3d0019be934b5f7dc8505",
+    "src/agentguard/detectors/provenance_instruction.py": "b4e5ea2dcca05f49b7c25a9b12b6b8cab9293539a346da63cb587fc2184f40ac",
+    "src/agentguard/detectors/structural_injection.py": "2fd98e533e9fe64edcab0a890bb810efa20fbd731622160230a53939b73397d8",
+    "src/agentguard/policy.py": "fb3a8bce71148536c558019d143a89bcb4fdfd89695d3a5594ffddcdfdc58c9a",
+    "src/agentguard/v4.py": "b3ef0b7a9d622d4fcaa432ce47c6487e3663487cfc642fa2306e90662affb0cf",
+    "tests/test_contextual_injection_v3.py": "7efdc1cf5d1cbf361bac3195d9c06a79c8e63e532a9c18a88b1043a37120d6cd",
+    "tests/test_provenance_instruction_v4.py": "a0ad47caeccc121e9c4fed633898139c6385fc5e70fecea9ce0e60a50aefbfc8"
+  },
+  "unopened_external_inputs_sha256": {
+    "data/agent_task_test.jsonl": "4bec3efb9e634ed3c47182624fff7de593eb521708fe9890a59a559248190d1c",
+    "data/attack_tools_test.jsonl": "f0e938e54036b25eb442b5d47de6635efa91c3395679d32330a7f49815364880"
+  },
+  "external_test_contents_read_before_freeze": false,
+  "prior_opened_development_sets": [
+    "project benchmark",
+    "AgentDojo converted traces",
+    "InjecAgent converted base cases",
+    "PIGuard NotInject",
+    "BIPIA code/text payloads"
+  ],
+  "interpretation_rule": "ASB evaluation is confirmatory only for the exact payload/boundary mapping documented by the post-freeze adapter; it is not automatically equivalent to ASB end-to-end attack success rate."
+}

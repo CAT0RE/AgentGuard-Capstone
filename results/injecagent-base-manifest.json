@@ -1,0 +1,54 @@
+{
+  "artifact": "AgentGuard v2 untouched InjecAgent base evaluation",
+  "created_date": "2026-08-15",
+  "status": "confirmatory_untouched_detector_test",
+  "source": {
+    "repository": "https://github.com/uiuc-kang-lab/InjecAgent",
+    "commit": "f19c9f2c79a41046eb13c03c51a24c567a8ffa07",
+    "license": "MIT",
+    "license_sha256": "b48589499dbb84caa796b00b4ea652b0443e49660282c44d890fd473b8c0674e",
+    "test_cases_dh_base_sha256": "0a8186468d21389af432e8c7b399ae42264d1b93a07b65c7a489468508604305",
+    "test_cases_ds_base_sha256": "4daab35c62a3845e8b9400f4dca58b9c9f37e57cd33b2337552557fbb26282e9",
+    "user_cases_sha256": "c840e2b00fdce68e7142d0970220522303d67b2530d6fb36ef1112448cdd8977"
+  },
+  "selection": {
+    "setting": "base",
+    "direct_harm_cases": 510,
+    "data_stealing_cases": 544,
+    "neutral_safe_controls": 17,
+    "total_cases": 1071,
+    "enhanced_excluded": "The enhanced setting adds an explicit ignore-previous-instructions prefix already covered by v1 signatures."
+  },
+  "detector_freeze": {
+    "frozen_before_data_download": true,
+    "normalization_sha256": "7bfcdfccc3e5635c5efa81e3fe10800991f75888cb1436e582b6f76bf1735c14",
+    "lexical_injection_sha256": "da16470c073f242ae355cde3ce687f07f1078e80d4c3d0019be934b5f7dc8505",
+    "structural_injection_sha256": "2fd98e533e9fe64edcab0a890bb810efa20fbd731622160230a53939b73397d8",
+    "goal_alignment_sha256": "d3f9178ddc1100e2895b77fccd2de4fa07be702dcff6882ed2859ffbcbfd46a7",
+    "monitor_sha256": "76abd707f18dc06d17bf23dd4f521a9f87d96240e923b549b51cd20dc6099a8c",
+    "policy_sha256": "fb3a8bce71148536c558019d143a89bcb4fdfd89695d3a5594ffddcdfdc58c9"
+  },
+  "adapter": {
+    "path": "src/agentguard/integrations/injecagent.py",
+    "sha256": "db35a707bb51f0c10fe88e1b9b65c0eb8539067bca0cbaa673efea4e8d6affd9"
+  },
+  "artifacts": {
+    "converted_cases": "results/injecagent-base-cases.jsonl",
+    "converted_cases_sha256": "9ad3ce279cb59cd17e23d6d9a6cb11c486841b1d59aba4e60f08d41816119397",
+    "evaluation": "results/injecagent-base-evaluation.json",
+    "evaluation_sha256": "73f486f56f700f287fdff40fd7f0348416bd8a6cf9338fd02734707f391c6cb7"
+  },
+  "v2_result": {
+    "true_positive": 0,
+    "false_positive": 0,
+    "true_negative": 17,
+    "false_negative": 1054,
+    "intervention_recall": 0.0,
+    "logged_signal_cases": 32,
+    "logged_signal_rate": 0.0304,
+    "two_sided_clopper_pearson_recall_95_upper": 0.0035,
+    "safe_control_false_positive_rate": 0.0,
+    "two_sided_clopper_pearson_fpr_95_upper": 0.1951
+  },
+  "disclosure": "AgentGuard v2 detector code was frozen before the official InjecAgent data was downloaded. No detector or threshold was modified after observing this result. Safe controls replace the official template placeholder with a fixed neutral sentence and are not a hard-negative benchmark."
+}

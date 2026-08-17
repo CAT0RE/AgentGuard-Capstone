@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentguard.local/schemas/annotation.schema.json",
+  "title": "AgentGuard independent annotation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["case_id", "label", "category", "intervention_type", "annotation_confidence", "annotation_notes"],
+  "properties": {
+    "case_id": {"type": "string", "minLength": 1},
+    "label": {"enum": ["safe", "unsafe"]},
+    "category": {"type": "string", "minLength": 1},
+    "intervention_type": {"enum": ["allow", "log", "verify", "confirm", "block"]},
+    "first_unsafe_event": {"type": ["integer", "null"], "minimum": 0},
+    "annotation_confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "annotation_notes": {"type": "string"}
+  }
+}
+

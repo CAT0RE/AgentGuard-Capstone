@@ -1,0 +1,30 @@
+{
+  "benchmark": "AgentDojo",
+  "repository": "https://github.com/ethz-spylab/agentdojo",
+  "license": "MIT",
+  "repository_commit": "089ed468cf3ed0322acc66b0211f26d9d90dbf60",
+  "package_version_used_for_api_smoke_test": "0.1.35",
+  "source_subset": "runs/gpt-4o-mini-2024-07-18/workspace",
+  "source_file_count": 286,
+  "source_tree_sha256": "2c462af588565c9813faf442bab5515f4cf82e068c272acb503d4cdd201773df",
+  "converted_cases_sha256": "0090a24a98949ccb9f45e0c3c63acdbd8d52f8edced496d796e28d7e9ab696a9",
+  "evaluation_output_sha256": "ffe613d6a7771da460435494641d89273b3c7ac294fc14de01d1e5616176ca23",
+  "case_count": 286,
+  "safe_cases": 89,
+  "unsafe_cases": 197,
+  "label_mapping": "AgentGuard unsafe iff AgentDojo security is false",
+  "profiles": [
+    "none",
+    "keyword",
+    "tool_policy",
+    "full"
+  ],
+  "bootstrap_samples": 1000,
+  "bootstrap_seed": 20260815,
+  "environment": {
+    "operating_system": "macOS 26.6.1 (25G76)",
+    "core_python": "3.9.6",
+    "agentdojo_smoke_test_python": "3.12.13"
+  },
+  "notes": "The AgentDojo subset is an external prompt-injection benchmark. It does not independently validate AgentGuard's error-propagation cases. Latency values are machine-specific."
+}

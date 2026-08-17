@@ -1,0 +1,16 @@
+{
+  "artifact": "AgentGuard v2 post-hoc AgentDojo evaluation",
+  "created_date": "2026-08-15",
+  "status": "post_hoc_non_independent",
+  "package_version": "0.2.0",
+  "dataset": "results/agentdojo-external-cases.jsonl",
+  "dataset_sha256": "0090a24a98949ccb9f45e0c3c63acdbd8d52f8edced496d796e28d7e9ab696a9",
+  "frozen_v1_result": "results/agentdojo-external.json",
+  "frozen_v1_result_sha256": "ffe613d6a7771da460435494641d89273b3c7ac294fc14de01d1e5616176ca23",
+  "v2_result": "results/agentdojo-external-v2-posthoc.json",
+  "v2_result_sha256": "e8646059a97faef0d674ae34a7b0f3378554ac4ad947371677fce21b02161293",
+  "profiles": ["none", "keyword", "tool_policy", "full_v1", "full"],
+  "bootstrap_samples": 1000,
+  "random_seed": 20260815,
+  "disclosure": "The frozen AgentDojo traces were inspected during v1 false-negative analysis and informed the v2 structural rules. The v2 result is an engineering regression result, not an independent generalisation estimate."
+}

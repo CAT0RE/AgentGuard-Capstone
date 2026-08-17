@@ -1,0 +1,32 @@
+{
+  "protocol": "AgentGuard v3 pre-BIPIA freeze",
+  "frozen_at": "2026-08-17T10:39:01.826282+00:00",
+  "detector_profile": "full_v3",
+  "decision_positive": [
+    "verify",
+    "confirm",
+    "block"
+  ],
+  "unit_of_analysis": "one benchmark payload embedded as one untrusted tool result",
+  "adapter_commitment": "Map the benchmark payload field to an untrusted document.read result; preserve explicit labels; do not modify detector features, weights, thresholds, or policy after inspecting BIPIA.",
+  "frozen_project_files_sha256": {
+    "src/agentguard/assets/contextual_injection_v3.json": "ffc215f30211dae0e43005ec578e4e23859eede1118b4272fce1f6227f054cbf",
+    "src/agentguard/detectors/contextual_injection.py": "5dd08d57c85b71c30517daeb6183e89d839828e4176a83ecb39a888a97adaf20",
+    "src/agentguard/detectors/injection.py": "da16470c073f242ae355cde3ce687f07f1078e80d4c3d0019be934b5f7dc8505",
+    "src/agentguard/detectors/structural_injection.py": "2fd98e533e9fe64edcab0a890bb810efa20fbd731622160230a53939b73397d8",
+    "src/agentguard/evaluation.py": "496e6eaaa8a3fdc0e571c7cf873972c3a48b2b81bc3e4566fc86a761be4ea77b",
+    "src/agentguard/monitor.py": "c5a4fa78497c8885056165372d168e12bfc32f481d94c93033b85ed28cc0c40a",
+    "src/agentguard/policy.py": "fb3a8bce71148536c558019d143a89bcb4fdfd89695d3a5594ffddcdfdc58c9a",
+    "scripts/train_v3_contextual_detector.py": "3520538201c144dd5e2f14d73d13ce905a4a00d04d3fd974d6542982bd27d2dd"
+  },
+  "unopened_external_inputs_sha256": {
+    "BIPIA_code.json": "892545c5aaec0645b1ded65dc7816b3d70e9ef4eadcba2301a7a3db93676b6e0",
+    "BIPIA_text.json": "75750e7b4e8b34e8f9d88d89b357aeaaf02bd07f9e493ccd37eda74a0cd7c7f8"
+  },
+  "external_inputs_read_before_freeze": false,
+  "known_input_hashes_from_download_only": {
+    "BIPIA_code.json": "892545c5aaec0645b1ded65dc7816b3d70e9ef4eadcba2301a7a3db93676b6e0",
+    "BIPIA_text.json": "75750e7b4e8b34e8f9d88d89b357aeaaf02bd07f9e493ccd37eda74a0cd7c7f8"
+  },
+  "interpretation_rule": "This is a one-time external payload-detection test, not benchmark-native attack success rate. Any later detector change invalidates the confirmatory status of these BIPIA results."
+}

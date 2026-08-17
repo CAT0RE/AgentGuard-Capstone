@@ -1,0 +1,39 @@
+{
+  "protocol": "AgentGuard v5 pre-WASP freeze",
+  "frozen_at": "2026-08-17T10:52:22.788977+00:00",
+  "wasp_commit": "ffee6f41fde76acd14bd792db442479c506260c2",
+  "detector_profile": "full_v5_candidate",
+  "decision_positive": [
+    "verify",
+    "confirm",
+    "block"
+  ],
+  "design_commitment": "Standalone control intent from an untrusted tool/web observation triggers VERIFY; trusted user requests are not evidence for this provenance detector; deterministic authorization remains the blocking authority.",
+  "adapter_commitment": "After freeze, inspect WASP attack/utility schemas. Map web-observation text to untrusted tool results, preserve attack vs utility labels, and do not alter v5 detectors or policy.",
+  "frozen_project_files_sha256": {
+    "src/agentguard/assets/contextual_injection_v3.json": "ffc215f30211dae0e43005ec578e4e23859eede1118b4272fce1f6227f054cbf",
+    "src/agentguard/detectors/contextual_injection.py": "5dd08d57c85b71c30517daeb6183e89d839828e4176a83ecb39a888a97adaf20",
+    "src/agentguard/detectors/injection.py": "da16470c073f242ae355cde3ce687f07f1078e80d4c3d0019be934b5f7dc8505",
+    "src/agentguard/detectors/provenance_instruction.py": "b4e5ea2dcca05f49b7c25a9b12b6b8cab9293539a346da63cb587fc2184f40ac",
+    "src/agentguard/detectors/provenance_gate.py": "aef428799d724c4033be2c8cdf2d797004d9442b09fe04a422d875855386cd01",
+    "src/agentguard/detectors/structural_injection.py": "2fd98e533e9fe64edcab0a890bb810efa20fbd731622160230a53939b73397d8",
+    "src/agentguard/policy.py": "fb3a8bce71148536c558019d143a89bcb4fdfd89695d3a5594ffddcdfdc58c9a",
+    "src/agentguard/v5.py": "7b11d8dbbeb2b3049c543e150f9e1e257e88a99f9cb755999957da1a1998ac38",
+    "tests/test_provenance_gate_v5.py": "ff01e4ea4333795c3c211a0abbab467d96e107831f36b502ae54ee3309af3794"
+  },
+  "unopened_external_inputs_sha256": {
+    "webarena_prompt_injections/configs/croissant/attacks_in_webarena_format.jsonl": "3ea4dd7c79cd53afd46bcddf6e2cf7b2ec7f9dcce3a23c749bffffd5fa281bdf",
+    "webarena_prompt_injections/configs/croissant/utility_in_webarena_format.jsonl": "83573bcbd8301fd59946945cb78b1a634ee5492b44a153f982c22c9a0f1b46b5"
+  },
+  "external_contents_read_before_freeze": false,
+  "prior_opened_development_sets": [
+    "project benchmark",
+    "AgentDojo converted traces",
+    "InjecAgent converted base cases",
+    "PIGuard NotInject",
+    "BIPIA",
+    "ASB"
+  ],
+  "metric_commitment": "Report confusion matrix, precision, recall, specificity, F1, accuracy, and Wilson 95% intervals.",
+  "known_limitation": "Boundary detection is not WASP end-to-end model attack success rate."
+}

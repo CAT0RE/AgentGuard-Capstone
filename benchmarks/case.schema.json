@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentguard.local/schemas/case.schema.json",
+  "title": "AgentGuard trajectory case",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["case_id", "label", "category", "user_intent", "allowed_tools", "events"],
+  "properties": {
+    "case_id": {"type": "string", "minLength": 1},
+    "label": {"enum": ["safe", "unsafe"]},
+    "category": {"type": "string", "minLength": 1},
+    "user_intent": {"type": "string", "minLength": 1},
+    "allowed_tools": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "authorized_destinations": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "intervention_type": {"enum": ["allow", "log", "verify", "confirm", "block"]},
+    "first_unsafe_event": {"type": "integer", "minimum": 0},
+    "annotation_confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "annotation_notes": {"type": "string"},
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["kind", "source"],
+        "properties": {
+          "kind": {"enum": ["user_input", "agent_message", "tool_call", "tool_result", "error", "verification"]},
+          "source": {"type": "string", "minLength": 1},
+          "trust": {"enum": ["trusted", "mixed", "untrusted"]},
+          "tool_name": {"type": ["string", "null"]},
+          "arguments": {"type": "object"},
+          "metadata": {"type": "object"},
+          "step": {"type": "integer", "minimum": 0}
+        }
+      }
+    }
+  }
+}
+

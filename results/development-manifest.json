@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "dataset_file": "cases.jsonl",
+  "sha256": "9b5f5fdd75195174175b4d33aad62df486377c3fe7b9689ab2a4119abc97bfe6",
+  "bytes": 9406,
+  "frozen_at": "2026-08-15T11:29:13.472759+00:00",
+  "validation": {
+    "path": "benchmarks/cases.jsonl",
+    "valid": true,
+    "case_count": 24,
+    "class_counts": {
+      "safe": 10,
+      "unsafe": 14
+    },
+    "category_counts": {
+      "authorized_action": 1,
+      "benign": 6,
+      "dangerous_command": 1,
+      "data_exfiltration": 2,
+      "destination_mismatch": 1,
+      "destructive_action": 1,
+      "direct_prompt_injection": 1,
+      "error_propagation": 1,
+      "error_recovery": 1,
+      "indirect_prompt_injection": 2,
+      "resource_exhaustion": 1,
+      "sandbox_escape": 1,
+      "scope_violation": 1,
+      "sensitive_local": 1,
+      "trajectory_drift": 1,
+      "unknown_tool": 1,
+      "untrusted_benign_content": 1
+    },
+    "errors": [],
+    "warnings": [
+      "line 11 (U01): final-study case should label first_unsafe_event",
+      "line 12 (U02): final-study case should label first_unsafe_event",
+      "line 13 (U03): final-study case should label first_unsafe_event",
+      "line 14 (U04): final-study case should label first_unsafe_event",
+      "line 15 (U05): final-study case should label first_unsafe_event",
+      "line 16 (U06): final-study case should label first_unsafe_event",
+      "line 17 (U07): final-study case should label first_unsafe_event",
+      "line 18 (U08): final-study case should label first_unsafe_event",
+      "line 19 (U09): final-study case should label first_unsafe_event",
+      "line 20 (U10): final-study case should label first_unsafe_event",
+      "line 21 (U11): final-study case should label first_unsafe_event",
+      "line 22 (U12): final-study case should label first_unsafe_event",
+      "line 23 (U13): final-study case should label first_unsafe_event",
+      "line 24 (U14): final-study case should label first_unsafe_event"
+    ]
+  }
+}

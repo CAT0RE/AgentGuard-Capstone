@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AgentGuard · Runtime Security Monitor</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <a class="brand" href="#">
+        <span class="brand-mark">AG</span>
+        <span><strong>AgentGuard</strong><small>Runtime Security</small></span>
+      </a>
+      <nav>
+        <button class="nav-item active" data-view="monitor"><span>◉</span> Live Monitor</button>
+        <button class="nav-item" data-view="agent"><span>↻</span> Agent Loop</button>
+        <button class="nav-item" data-view="evaluation"><span>⌁</span> Evaluation</button>
+        <button class="nav-item" data-view="architecture"><span>◇</span> Architecture</button>
+      </nav>
+      <div class="sidebar-note">
+        <span class="pulse"></span>
+        <div><strong>Monitor online</strong><small>Policy engine ready</small></div>
+      </div>
+    </aside>
+
+    <main>
+      <header>
+        <div>
+          <p class="eyebrow">CAPSTONE RESEARCH PROTOTYPE</p>
+          <h1 id="page-title">Live Agent Monitor</h1>
+        </div>
+        <div class="header-meta"><span>Policy</span><strong id="policy-badge">BALANCED</strong></div>
+      </header>
+
+      <section id="monitor-view" class="view active">
+        <div class="hero-grid">
+          <article class="panel controls-panel">
+            <div class="panel-head"><div><p class="label">SIMULATION</p><h2>Run a security scenario</h2></div></div>
+            <label for="scenario">Scenario</label>
+            <select id="scenario"></select>
+            <p id="scenario-description" class="muted"></p>
+            <div class="field-row">
+              <div><label for="policy">Policy profile</label><select id="policy"><option value="strict">Strict</option><option value="balanced" selected>Balanced</option><option value="permissive">Permissive</option></select></div>
+              <button id="run-button" class="primary"><span>▶</span> Run trace</button>
+            </div>
+          </article>
+
+          <article class="panel score-panel">
+            <p class="label">MAXIMUM TRACE RISK</p>
+            <div class="score-wrap">
+              <div class="score-ring low" id="score-ring"><div><strong id="risk-score">0</strong><span>/ 100</span></div></div>
+              <div class="score-copy"><span class="risk-pill low" id="risk-level">READY</span><h3 id="decision-label">Awaiting a trace</h3><p id="decision-copy">Select a scenario to inspect every agent event before it reaches a tool.</p></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat"><p>Trace events</p><strong id="event-count">0</strong><span>observed</span></article>
+          <article class="stat"><p>Security findings</p><strong id="finding-count">0</strong><span>with evidence</span></article>
+          <article class="stat"><p>Intervention</p><strong id="intervention">—</strong><span>policy action</span></article>
+          <article class="stat"><p>Expected class</p><strong id="expected">—</strong><span>ground truth</span></article>
+        </div>
+
+        <article class="panel trace-panel">
+          <div class="panel-head"><div><p class="label">TRAJECTORY</p><h2>Event timeline</h2></div><code id="trace-id">No trace</code></div>
+          <div id="timeline" class="timeline empty-state"><p>Run a scenario to populate the monitored trajectory.</p></div>
+        </article>
+      </section>
+
+      <section id="agent-view" class="view">
+        <div class="agent-grid">
+          <article class="panel controls-panel">
+            <div class="panel-head"><div><p class="label">MODEL → MONITOR → TOOL</p><h2>Run a monitored agent loop</h2></div><span class="offline-badge">OFFLINE REPLAY</span></div>
+            <label for="agent-scenario">Agent scenario</label>
+            <select id="agent-scenario"></select>
+            <p id="agent-intent" class="muted"></p>
+            <div class="field-row">
+              <div><label for="agent-policy">Policy profile</label><select id="agent-policy"><option value="strict">Strict</option><option value="balanced" selected>Balanced</option><option value="permissive">Permissive</option></select></div>
+              <button id="agent-run-button" class="primary"><span>↻</span> Run agent</button>
+            </div>
+          </article>
+          <article class="panel agent-result">
+            <p class="label">EXECUTION OUTCOME</p>
+            <span id="agent-status" class="risk-pill low">READY</span>
+            <h2 id="agent-result-title">Awaiting a model run</h2>
+            <p id="agent-result-text" class="muted">The provider proposes function calls. AgentGuard mediates every call and output before the next model turn.</p>
+            <div class="agent-kpis"><div><strong id="agent-turns">0</strong><small>turns</small></div><div><strong id="agent-tools">0</strong><small>executed tools</small></div><div><strong id="agent-interventions">0</strong><small>interventions</small></div></div>
+          </article>
+        </div>
+        <article class="panel trace-panel agent-trace">
+          <div class="panel-head"><div><p class="label">OBSERVABLE EXECUTION</p><h2>Monitored model trajectory</h2></div><code id="agent-trace-id">No trace</code></div>
+          <div id="agent-timeline" class="timeline empty-state"><p>Run an agent scenario to inspect the real mediation loop.</p></div>
+        </article>
+      </section>
+
+      <section id="evaluation-view" class="view">
+        <div class="eval-intro">
+          <div><p class="eyebrow">CONTROLLED BENCHMARK</p><h2>Compare monitoring strategies</h2><p class="muted">The bundled labelled dataset covers benign activity, prompt injection, unsafe actions, exfiltration, sequence anomalies, and error propagation.</p></div>
+          <button id="evaluate-button" class="primary">Run benchmark</button>
+        </div>
+        <div id="metric-cards" class="metric-cards"><div class="empty-state wide"><p>Run the benchmark to compare baselines, frozen v1, and the post-hoc v2 monitor.</p></div></div>
+        <article class="panel chart-panel">
+          <div class="panel-head"><div><p class="label">COMPARATIVE PERFORMANCE</p><h2>Precision, recall, F1 and accuracy</h2></div></div>
+          <div id="metrics-chart" class="bar-chart"></div>
+        </article>
+      </section>
+
+      <section id="architecture-view" class="view">
+        <div class="architecture-grid">
+          <article class="panel architecture-card"><span class="stage">01</span><h3>Observe</h3><p>Capture user input, agent messages, tool calls, tool outputs, verification events and errors with provenance.</p></article>
+          <article class="panel architecture-card"><span class="stage">02</span><h3>Detect</h3><p>Run lexical and structural injection, goal alignment, tool policy, data-flow, error-propagation and sequence detectors over each event and its history.</p></article>
+          <article class="panel architecture-card"><span class="stage">03</span><h3>Score</h3><p>Aggregate independent evidence with a noisy-OR model into an explainable risk score from 0 to 100.</p></article>
+          <article class="panel architecture-card"><span class="stage">04</span><h3>Intervene</h3><p>Allow, log, verify, request confirmation or block according to the configured policy and critical evidence.</p></article>
+        </div>
+        <article class="panel threat-panel">
+          <p class="label">THREAT COVERAGE</p><h2>Defence-in-depth across the trajectory</h2>
+          <div class="threat-list">
+            <div><span>PI</span><strong>Prompt injection</strong><small>Direct and indirect instruction hijacking</small></div>
+            <div><span>TU</span><strong>Tool misuse</strong><small>Scope, impact, destination and command checks</small></div>
+            <div><span>DF</span><strong>Data exfiltration</strong><small>Secret detection and cross-event taint tracking</small></div>
+            <div><span>EP</span><strong>Error propagation</strong><small>Unresolved failures before consequential actions</small></div>
+            <div><span>SA</span><strong>Sequence anomalies</strong><small>Loops, drift and trajectory budget enforcement</small></div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+  <div id="toast" role="status"></div>
+  <script src="/app.js"></script>
+</body>
+</html>

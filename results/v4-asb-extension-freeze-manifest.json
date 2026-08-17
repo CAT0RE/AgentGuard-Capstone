@@ -1,0 +1,28 @@
+{
+  "protocol": "AgentGuard v4 untouched ASB extension",
+  "frozen_at": "2026-08-17T10:45:27.040726+00:00",
+  "base_freeze_manifest": "results/v4-freeze-manifest.json",
+  "base_freeze_sha256": "c71f49388f5a7707a9b8e91e2b30947317a5b84628d9fb58182662c8d2d4ee14",
+  "frozen_v4_project_hashes": {
+    "src/agentguard/assets/contextual_injection_v3.json": "ffc215f30211dae0e43005ec578e4e23859eede1118b4272fce1f6227f054cbf",
+    "src/agentguard/detectors/contextual_injection.py": "5dd08d57c85b71c30517daeb6183e89d839828e4176a83ecb39a888a97adaf20",
+    "src/agentguard/detectors/injection.py": "da16470c073f242ae355cde3ce687f07f1078e80d4c3d0019be934b5f7dc8505",
+    "src/agentguard/detectors/provenance_instruction.py": "b4e5ea2dcca05f49b7c25a9b12b6b8cab9293539a346da63cb587fc2184f40ac",
+    "src/agentguard/detectors/structural_injection.py": "2fd98e533e9fe64edcab0a890bb810efa20fbd731622160230a53939b73397d8",
+    "src/agentguard/policy.py": "fb3a8bce71148536c558019d143a89bcb4fdfd89695d3a5594ffddcdfdc58c9a",
+    "src/agentguard/v4.py": "b3ef0b7a9d622d4fcaa432ce47c6487e3663487cfc642fa2306e90662affb0cf",
+    "tests/test_contextual_injection_v3.py": "7efdc1cf5d1cbf361bac3195d9c06a79c8e63e532a9c18a88b1043a37120d6cd",
+    "tests/test_provenance_instruction_v4.py": "a0ad47caeccc121e9c4fed633898139c6385fc5e70fecea9ce0e60a50aefbfc8"
+  },
+  "asb_commit": "1f561dccf92d55302368fa67679b4ba9d9c8fdc4",
+  "unopened_external_inputs_sha256": {
+    "data/all_attack_tools.jsonl": "c960ab1e60dee2038d51bc64e8f119e565c037c95a8565f176899de8d819a4b2",
+    "data/all_attack_tools_aggressive.jsonl": "e46485f66e2d7a50493272554213896a60f06f743b5c6cd3f008cd13b72fb990",
+    "data/all_attack_tools_non_aggressive.jsonl": "53d8514b90bda4e2c7b939a767e937947d2806b4d0dc0b832de6131941be39f4",
+    "data/all_normal_tools.jsonl": "45b821931348993de3eda474a997d62cb5b9e7a3fe358e5c81a7ef0417ccb73f"
+  },
+  "external_contents_read_before_freeze": false,
+  "adapter_commitment": "Map an ASB attack tool's Attacker Instruction to an untrusted tool-discovery result and label unsafe. Map normal tool metadata to the same boundary and label safe. Deduplicate exact records; do not change v4 detector code or policy after inspection.",
+  "metric_commitment": "Report TP/FP/TN/FN, precision, recall, F1, accuracy, and Wilson intervals.",
+  "known_limitation": "This is boundary-level detection of ASB tool metadata, not ASB's model-dependent end-to-end ASR."
+}
